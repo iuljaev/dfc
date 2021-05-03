@@ -1,0 +1,51 @@
+.price {
+display: flex;
+flex-direction:column;
+width: 100%;
+}
+
+.price_items {
+display: inline-flex;
+border: 1px solid #dedede;
+margin: 20px 10px;
+}
+.price_items:hover {
+	border: 2px solid blue;
+}
+.price_data {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 10px;
+padding: 10px;
+}
+.price_data:nth-child(2){
+	border-left: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+}
+.price_data h2 {
+	display: flex;
+  width: 265px;
+  font-size: 16px;
+  margin: 10px;
+  align-items: center;
+	line-height: 20px;
+
+}
+.price_data span {
+font-size: 13px;
+text-align: center;
+}
+.price_data b {
+font-style: 13px;;
+}
+.price_data small {
+
+}
+.price_data a {
+	padding: 5px;
+	text-decoration: none;
+	border: 1px solid blue;
+	color: blue;
+}

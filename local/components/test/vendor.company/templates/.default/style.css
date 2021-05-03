@@ -1,0 +1,21 @@
+.company {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.company h2 {
+	font-size: 22px;
+}
+.company img {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.company_cont {
+	padding: 15px;
+	margin: 0;
+	line-height: 15px;
+	font-size: 16px;
+	text-align: center;
+
+}

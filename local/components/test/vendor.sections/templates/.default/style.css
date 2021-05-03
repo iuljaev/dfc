@@ -1,0 +1,20 @@
+.vendor_list {
+	display: flex;
+}
+.vendor_list ul {
+	display: flex;
+	flex-direction: column;
+
+}
+.vendor_list li {
+	list-style: none;
+
+}
+.vendor_list a {
+	font-size: 20px;
+	color: #000 !important;
+	text-decoration: none;
+}
+.vendor_list li a:hover {
+	color: #006BC6;
+}
