@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 		"ELEMENT_CODE" => $arResult["VARIABLES"]["ELEMENT_CODE"],
 		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
 		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-		"IBLOCK_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"],
+		"IBLOCK_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["vendor"],
 		),
 	$component
 );?>

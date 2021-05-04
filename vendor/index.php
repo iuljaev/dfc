@@ -2,31 +2,17 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Вендоры");
 ?><?$APPLICATION->IncludeComponent(
-	"test:vendor", 
-	".default", 
-	array(
-		"FIELD_CODE" => array(
-			0 => "DETAIL_TEXT",
-			1 => "DETAIL_PICTURE",
-			2 => "",
-		),
+	"test:vendor",
+	"",
+	Array(
+		"FIELD_CODE" => array("DETAIL_TEXT","DETAIL_PICTURE",""),
 		"IBLOCK_ID" => "9",
 		"IBLOCK_TYPE" => "vendor",
-		"PROPERTY_CODE" => array(
-			0 => "",
-			1 => "CATALOG",
-			2 => "",
-		),
+		"PROPERTY_CODE" => array("","CATALOG",""),
 		"SEF_FOLDER" => "/vendor/",
 		"SEF_MODE" => "Y",
+		"SEF_URL_TEMPLATES" => Array("company"=>"#ELEMENT_CODE#/","item"=>"#ELEMENT_CODE#/#ELEMENT_ID#/","section"=>""),
 		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_ORDER1" => "DESC",
-		"COMPONENT_TEMPLATE" => ".default",
-		"SEF_URL_TEMPLATES" => array(
-			"section" => "",
-			"company" => "#SECTION_CODE#/",
-			"item" => "#SECTION_CODE#/#ELEMENT_ID#/",
-		)
-	),
-	false
+		"SORT_ORDER1" => "DESC"
+	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
