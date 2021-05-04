@@ -2,8 +2,8 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Вендоры");
 ?><?$APPLICATION->IncludeComponent(
-	"test:vendor", 
-	".default", 
+	"test:vendor",
+	".default",
 	array(
 		"FIELD_CODE" => array(
 			0 => "DETAIL_TEXT",
@@ -24,7 +24,7 @@ $APPLICATION->SetTitle("Вендоры");
 		"COMPONENT_TEMPLATE" => ".default",
 		"SEF_URL_TEMPLATES" => array(
 			"section" => "",
-			"company" => "",
+			"company" => "#ELEMENT_ID#/",
 			"item" => "#ELEMENT_ID#/",
 		)
 	),
