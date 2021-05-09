@@ -8,7 +8,6 @@ use Bitrix\Main\Context,
 	Bitrix\Iblock;
 
 CPageOption::SetOptionString("main", "nav_page_in_session", "N");
-
 if(!isset($arParams["CACHE_TIME"]))
 	$arParams["CACHE_TIME"] = 36000000;
 

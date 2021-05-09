@@ -69,7 +69,7 @@ $arComponentParameters = array(
 			"NAME" => GetMessage("T_IBLOCK_PROPERTY"),
 			"TYPE" => "LIST",
 			"MULTIPLE" => "Y",
-			"VALUES" => $arProperty_LNS,
+			"VALUES" => $arProperty_LNS_Vendor,$arProperty_LNS_Catalog,
 			"ADDITIONAL_VALUES" => "Y",
 		),
 		"IBLOCK_URL" => CIBlockParameters::GetPathTemplateParam(

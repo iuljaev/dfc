@@ -54,12 +54,15 @@ foreach($arParams["PROPERTY_CODE"] as $k=>$v)
 			$bGetProperty = !empty($arParams["PROPERTY_CODE"]);
 
 		$arFilter = array (
-			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-			"IBLOCK_ID"=> $arParams["IBLOCKS"],
+			"IBLOCK_TYPE_VENDOR" => $arParams["IBLOCK_TYPE_VENDOR"],
+			"IBLOCK_TYPE_CATALOG" => $arParams["IBLOCK_TYPE_CATALOG"],
+			"IBLOCK_ID_VENDOR"=> $arParams["IBLOCK_ID_VENDOR"],
+			"IBLOCK_ID_CATALOG"=> $arParams["IBLOCK_ID_CATALOG"],
 			"IBLOCK_LID" => SITE_ID,
 			"ACTIVE" => "Y",
 			"ACTIVE_DATE" => "Y",
 			"CHECK_PERMISSIONS" => "Y",
+
 
 		);
 		$arOrder = array(

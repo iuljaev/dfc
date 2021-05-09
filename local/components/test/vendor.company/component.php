@@ -1,6 +1,5 @@
 <?
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
-
 use Bitrix\Main\Context,
 	Bitrix\Main\Type\DateTime,
 	Bitrix\Main\Loader,
@@ -8,7 +7,7 @@ use Bitrix\Main\Context,
 
 CPageOption::SetOptionString("main", "nav_page_in_session", "N");
 
-debug($arParams);
+
 $arParams["IBLOCK_TYPE"] = trim($arParams["IBLOCK_TYPE"]);
 if($arParams["IBLOCK_TYPE"] == '')
 	$arParams["IBLOCK_TYPE"] = "news";
@@ -27,6 +26,7 @@ if($arParams["ELEMENT_ID"] > 0 && $arParams["ELEMENT_ID"]."" != $arParams["~ELEM
 		);
 	}
 	return;
+
 }
 
 if(!is_array($arParams["FIELD_CODE"]))
@@ -52,7 +52,7 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 		ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED"));
 		return;
 	}
-	$bGetProperty = !empty($arParams["PROPERTY_CODE"]);
+	$bGetProperty = !empty($arParams["PROPERTY_CODE_CATALOG"]);
 	$arFilter = array(
 		"IBLOCK_LID" => SITE_ID,
 		"IBLOCK_ACTIVE" => "Y",
@@ -61,12 +61,11 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 		"SHOW_HISTORY" => $arParams["SHOW_WORKFLOW"]? "Y": "N",
 	);
 
-	if(intval($arParams["IBLOCK_ID"]) > 0)
-		$arFilter["IBLOCK_ID"] = $arParams["IBLOCK_ID"];
+
+	if(intval($arParams["IBLOCK_ID_VENDOR"]) > 0)
+		$arFilter["IBLOCK_ID"] = $arParams["IBLOCK_ID_VENDOR"];
 	else
-		$arFilter["=IBLOCK_TYPE"] = $arParams["IBLOCK_TYPE"];
-
-
+		$arFilter["=IBLOCK_TYPE"] = $arParams["IBLOCK_TYPE_VENDOR"];
 	if($arParams["ELEMENT_ID"] <= 0)
 		$arParams["ELEMENT_ID"] = CIBlockFindTools::GetElementID(
 			$arParams["ELEMENT_ID"],
@@ -93,6 +92,7 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 			}
 		$rsItems = CIBlockElement::GetList($arOrder, $arFilter, false, false, $arSelect);
 		$rsItems->SetUrlTemplates($arParams["DETAIL_URL"]);
+
 		while($arItem = $rsItems->GetNext())
 		{
 			$arButtons = CIBlock::GetPanelButtons(
@@ -107,9 +107,10 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 			$arItem["DISPLAY_PROPERTIES"] = array($arParams['PROPERTY_CODE']);
 			$arResult["ITEMS"][]=$arItem;
 			$arResult["LAST_ITEM_IBLOCK_ID"]=$arItem["IBLOCK_ID"];
-		}
+		}?>
+		<pre><?php //print_r($arResult); ?></pre>
 
-	if ($arParams["STRICT_SECTION_CHECK"])
+<?	if ($arParams["STRICT_SECTION_CHECK"])
 	{
 		if ($arParams["SECTION_ID"] > 0)
 		{
@@ -334,4 +335,5 @@ if(isset($arResult["ID"]))
 	}
 
 	$this->setTemplateCachedData($arResult["NAV_CACHED_DATA"]);
+
 }
