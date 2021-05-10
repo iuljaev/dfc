@@ -46,6 +46,6 @@ font-style: 13px;;
 .price_data a {
 	padding: 5px;
 	text-decoration: none;
-	border: 1px solid blue;
+	border: 1px solid #0000ff;
 	color: blue;
 }

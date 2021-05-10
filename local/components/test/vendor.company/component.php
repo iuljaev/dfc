@@ -61,7 +61,6 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 		"SHOW_HISTORY" => $arParams["SHOW_WORKFLOW"]? "Y": "N",
 	);
 
-
 	if(intval($arParams["IBLOCK_ID_VENDOR"]) > 0)
 		$arFilter["IBLOCK_ID"] = $arParams["IBLOCK_ID_VENDOR"];
 	else
@@ -150,7 +149,14 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 		"PROPERTY_*",
 	));
 	$arFilter["ID"] = $arParams["ELEMENT_ID"];
-
+$arSelect_cat = Array("NAME","DETAIL_PICTURE","DETAIL_PAGE_URL",);
+		$arFilter_cat = Array("IBLOCK_ID"=>11, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y","!PROPERTY_VENDOR"=>false);
+		$res = CIBlockElement::GetList(Array(), $arFilter_cat, false, false, $arSelect_cat);
+		while($ob = $res->GetNextElement()) {
+			$arFields_cat = $ob->GetFields();
+			$arResult['CATALOG'][]=$arFields_cat;
+		}
+debug($arResult);
 	$rsElement = CIBlockElement::GetList(array(), $arFilter, false, false, $arSelect);
 	$rsElement->SetUrlTemplates($arParams["DETAIL_URL"], "", $arParams["IBLOCK_URL"]);
 	if($obElement = $rsElement->GetNextElement())
@@ -274,6 +280,7 @@ if($arParams["SHOW_WORKFLOW"] || $this->startResultCache(false, array(($arParams
 			"IPROPERTY_VALUES",
 			"TIMESTAMP_X",
 			"PROPERTY_*",
+            "CATALOG"
 		);
 
 		$this->setResultCacheKeys($resultCacheKeys);

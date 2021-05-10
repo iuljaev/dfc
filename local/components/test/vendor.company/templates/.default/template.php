@@ -2,7 +2,7 @@
 
 $this->setFrameMode(true);
 ?>
-<?php debug($arResult['ITEMS']); ?>
+
 <div class="company">
 	<h2><?=$arResult["NAME"]?></h2>
 	<div class="">
@@ -11,21 +11,16 @@ $this->setFrameMode(true);
 	<div class="company_cont">
 		<p><?=$arResult["DETAIL_TEXT"]?></p>
 	</div>
+
 </div>
 <div class="">
 	<ul>
-		<?php
+<?php debug($arResult); ?>
+		 	<li> <a href="<?=$arResult['CATALOG']['DETAIL_PAGE_URL']
+                .$arResult['CATALOG']['CODE']?>"><?=$arResult['CATALOG']['NAME
+                ']?></a>
+            </li>
 
-
-		$arSelect_cat = Array("NAME","DETAIL_PICTURE","DETAIL_PAGE_URL",);
-		$arFilter_cat = Array("IBLOCK_ID"=>11, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y","!PROPERTY_VENDOR"=>false);
-		$res = CIBlockElement::GetList(Array(), $arFilter_cat, false, false, $arSelect_cat);
-		while($ob = $res->GetNextElement())
-		{
-		 $arFields = $ob->GetFields();?>
-
-		 	<li> <a href="<?=$arFields["DETAIL_PAGE_URL"]?>"><?=$arFields["NAME"]?></a> </li>
-		<? } ?>
 
 
 	</ul>

@@ -12,8 +12,8 @@ use Bitrix\Main\Loader,
 	Bitrix\Iblock;
 $arDefaultUrlTemplates404 = array(
 	"section" => "",
-	"company" => "#ELEMENT_ID#/",
-	"item" => "#SECTION_CODE#/#ELEMENT_ID#/",
+	"company" => "#SECTION_CODE#/",
+	"item" => "#SECTION_CODE#/#ELEMENT_CODE#/",
 );
 
 $arDefaultVariableAliases404 = array();

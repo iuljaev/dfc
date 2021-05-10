@@ -39,7 +39,7 @@ $APPLICATION->SetTitle("Вендоры");
 		"SEF_URL_TEMPLATES" => array(
 			"section" => "",
 			"company" => "#ELEMENT_CODE#/",
-			"item" => "#ELEMENT_CODE#/#ELEMENT_ID#/",
+			"item" => "#ELEMENT_CODE#/#ELEMENT_CODE#/",
 		)
 	),
 	false
